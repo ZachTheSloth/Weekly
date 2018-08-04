@@ -75,6 +75,9 @@
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7w-qm-o06" userLabel="Credit Slot 6">
                                 <rect key="frame" x="311" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P7w-qm-o06" secondAttribute="height" multiplier="1:1" id="wcU-xr-igM"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                     </stackView>
