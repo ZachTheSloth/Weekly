@@ -30,7 +30,11 @@ class TableViewController: UITableViewController
     override func viewDidLoad()
     {
         // Initialize data array with test data.
-        data = [cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 5)]
+        data = [cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 5),
+                cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 4),
+                cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 3),
+                cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 2),
+                cellData(title: "item", expiration: 7, maxCredits: 6, currentCredits: 1)]
     }
     
     
@@ -48,12 +52,25 @@ class TableViewController: UITableViewController
     {
         // Grabbing the first view in the xib file.
         let cell = Bundle.main.loadNibNamed("ItemCell", owner: self, options: nil)?.first as! ItemCell
+        let cellData = data[indexPath.row]
         
         // Set up the cell data.
-        cell.titleLabel.text = data[indexPath.row].title
-        cell.expirationLabel.text = String(data[indexPath.row].expiration!)
-        // TODO: Add stuff for the credit count.
         
+        cell.titleLabel.text = cellData.title
+        cell.expirationLabel.text = String(cellData.expiration!)
+        
+        let maxCredits = cellData.maxCredits
+        let currentCredits = cellData.currentCredits
+        
+        var listOfCreditSlots = [cell.creditSlot1ImageView, cell.creditSlot2ImageView, cell.creditSlot3ImageView, cell.creditSlot4ImageView, cell.creditSlot5ImageView, cell.creditSlot6ImageView]
+        
+        for index in 0...(currentCredits! - 1)
+        { listOfCreditSlots[index]?.image = UIImage(named: "credit_full") }
+        
+        for index in currentCredits!...(maxCredits! - 1)
+        { listOfCreditSlots[index]?.image = UIImage(named: "credit_empty") }
+        
+        // Return the constructed cell.
         return cell
     }
     

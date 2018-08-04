@@ -27,7 +27,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-9s-hnL" userLabel="Expiration Time Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-9s-hnL" userLabel="Expiration Time Label">
                         <rect key="frame" x="317" y="11" width="22" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="h2W-wF-bse"/>
@@ -36,11 +36,9 @@
                         <color key="textColor" red="0.61087273320000002" green="0.0" blue="0.30010028129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-FH-MnB" userLabel="Clock Icon">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-FH-MnB" userLabel="Clock Icon">
                         <rect key="frame" x="347" y="14" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="vl3-FH-MnB" secondAttribute="height" multiplier="1:1" id="xid-uy-xxo"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9ra-zs-wQu" userLabel="Credit Display Stack">
                         <rect key="frame" x="16" y="54" width="361" height="50"/>
@@ -77,9 +75,6 @@
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7w-qm-o06" userLabel="Credit Slot 6">
                                 <rect key="frame" x="311" y="0.0" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="P7w-qm-o06" secondAttribute="height" multiplier="1:1" id="wE6-NL-ebs"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                     </stackView>
@@ -87,13 +82,11 @@
                 <color key="backgroundColor" red="1" green="0.0" blue="0.49556204659999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="CDO-9s-hnL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="4d9-JY-T7K"/>
-                    <constraint firstAttribute="trailing" secondItem="vl3-FH-MnB" secondAttribute="trailing" constant="16" id="72x-j5-qlj"/>
                     <constraint firstItem="9ra-zs-wQu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9T1-KF-rPo"/>
                     <constraint firstAttribute="trailing" secondItem="9ra-zs-wQu" secondAttribute="trailing" constant="16" id="AAM-H6-9zB"/>
-                    <constraint firstItem="vl3-FH-MnB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="JY9-oa-eD4"/>
-                    <constraint firstItem="vl3-FH-MnB" firstAttribute="leading" secondItem="CDO-9s-hnL" secondAttribute="trailing" constant="8" id="fql-dy-vc0"/>
-                    <constraint firstAttribute="bottom" secondItem="9ra-zs-wQu" secondAttribute="bottom" constant="15.5" id="jmV-DS-dJr"/>
+                    <constraint firstAttribute="bottom" secondItem="9ra-zs-wQu" secondAttribute="bottom" constant="15.5" id="Ezd-M7-Xxu"/>
+                    <constraint firstAttribute="trailing" secondItem="CDO-9s-hnL" secondAttribute="trailing" constant="54" id="Nxw-Do-okE"/>
+                    <constraint firstItem="CDO-9s-hnL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="W0H-jc-PdZ"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
@@ -102,16 +95,16 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="creditSlot1ImageView" destination="faq-pJ-Srl" id="6pr-Cc-Jv9"/>
-                <outlet property="creditSlot2ImageView" destination="aYS-vR-cBZ" id="cMU-u1-BCe"/>
-                <outlet property="creditSlot3ImageView" destination="aYS-vR-cBZ" id="CjC-Cb-PTW"/>
-                <outlet property="creditSlot4ImageView" destination="gKS-Do-iin" id="2qw-nJ-22F"/>
-                <outlet property="creditSlot5ImageView" destination="P7w-qm-o06" id="rsf-wX-C8n"/>
-                <outlet property="creditSlot6ImageView" destination="P7w-qm-o06" id="nBw-14-5xb"/>
+                <outlet property="creditSlot1ImageView" destination="z99-sj-vBu" id="WaI-FK-tBt"/>
+                <outlet property="creditSlot2ImageView" destination="faq-pJ-Srl" id="LrP-UJ-lXJ"/>
+                <outlet property="creditSlot3ImageView" destination="aYS-vR-cBZ" id="bOa-wI-hvy"/>
+                <outlet property="creditSlot4ImageView" destination="gKS-Do-iin" id="grJ-ss-622"/>
+                <outlet property="creditSlot5ImageView" destination="FjW-je-PMW" id="hOM-jt-vb4"/>
+                <outlet property="creditSlot6ImageView" destination="P7w-qm-o06" id="w3A-nl-n0Y"/>
                 <outlet property="expirationLabel" destination="CDO-9s-hnL" id="Hsx-Pj-xQS"/>
                 <outlet property="titleLabel" destination="wFF-e6-3Qs" id="lks-3p-9x4"/>
             </connections>
-            <point key="canvasLocation" x="187.5" y="-43"/>
+            <point key="canvasLocation" x="188" y="54"/>
         </tableViewCell>
     </objects>
 </document>
