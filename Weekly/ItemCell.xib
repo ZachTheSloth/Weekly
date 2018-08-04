@@ -19,20 +19,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-e6-3Qs" userLabel="Title Label">
-                        <rect key="frame" x="16" y="11" width="68" height="36"/>
+                        <rect key="frame" x="16" y="11" width="62" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="N1e-do-Zow"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-9s-hnL" userLabel="Expiration Time Label">
-                        <rect key="frame" x="317" y="11" width="22" height="36"/>
+                        <rect key="frame" x="318.5" y="11" width="20.5" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="h2W-wF-bse"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                         <color key="textColor" red="0.61087273320000002" green="0.0" blue="0.30010028129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
