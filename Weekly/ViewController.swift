@@ -49,7 +49,7 @@ class TableViewController: UITableViewController
         // Instantiate the search controller.
         navigationItem.searchController = searchController
         
-        // Configuration
+        // Configure visuals.
         navigationItem.hidesSearchBarWhenScrolling = false // Hide/show search bar when scrolling.
         searchController.searchBar.tintColor = .white  // Make the 'cancel' text white.
     }
