@@ -18,9 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-e6-3Qs" userLabel="Title Label">
-                        <rect key="frame" x="16" y="11" width="62" height="36"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFF-e6-3Qs" userLabel="Title Label">
+                        <rect key="frame" x="16" y="11" width="258" height="36"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -81,7 +80,9 @@
                 <color key="backgroundColor" red="1" green="0.0" blue="0.49556204659999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="wFF-e6-3Qs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8sH-bw-DJ1"/>
                     <constraint firstItem="9ra-zs-wQu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Nbr-HA-9Fn"/>
+                    <constraint firstItem="wFF-e6-3Qs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ePm-Yu-ddd"/>
                     <constraint firstAttribute="trailing" secondItem="9ra-zs-wQu" secondAttribute="trailing" constant="17" id="foe-0u-y8q"/>
                     <constraint firstAttribute="bottom" secondItem="9ra-zs-wQu" secondAttribute="bottom" constant="15.5" id="ysh-yE-ygn"/>
                 </constraints>

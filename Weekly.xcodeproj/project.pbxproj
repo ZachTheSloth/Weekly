@@ -17,6 +17,7 @@
 		92ABBB8D21140A1300721F19 /* WeeklyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ABBB8C21140A1300721F19 /* WeeklyUITests.swift */; };
 		92ABBB9C21140B7F00721F19 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ABBB9A21140B7F00721F19 /* ItemCell.swift */; };
 		92ABBB9D21140B7F00721F19 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ABBB9B21140B7F00721F19 /* ItemCell.xib */; };
+		92F2634621178D7900CE0943 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F2634521178D7900CE0943 /* Controller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		92ABBB8E21140A1300721F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92ABBB9A21140B7F00721F19 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		92ABBB9B21140B7F00721F19 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		92F2634521178D7900CE0943 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				92ABBB9B21140B7F00721F19 /* ItemCell.xib */,
 				92ABBB7321140A1300721F19 /* Assets.xcassets */,
 				92ABBB7521140A1300721F19 /* LaunchScreen.storyboard */,
+				92F2634521178D7900CE0943 /* Controller.swift */,
 				92ABBB7821140A1300721F19 /* Info.plist */,
 				92ABBB7021140A1200721F19 /* Weekly.xcdatamodeld */,
 			);
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F2634621178D7900CE0943 /* Controller.swift in Sources */,
 				92ABBB9C21140B7F00721F19 /* ItemCell.swift in Sources */,
 				92ABBB6C21140A1200721F19 /* ViewController.swift in Sources */,
 				92ABBB6A21140A1200721F19 /* AppDelegate.swift in Sources */,
