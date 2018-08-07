@@ -10,21 +10,25 @@ import UIKit
 
 class TableViewController: UITableViewController
 {
-
+ 
     
     
+    // IBOutlets
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
-    // Search controller.
-    let searchController = UISearchController(searchResultsController: nil)
-    
-    // Custom Colors
-    let jazzberryJam = UIColor(red:0.80, green:0.17, blue:0.39, alpha:1.00)
     
     
     
     override func viewDidLoad()
     {
-        configureSerachBar()
+        // Set the theme (for testing).
+        ThemeManager.setCurrentTheme(themeName: "Terminal", isInverted: false)
+        
+        configureTableView()
+        configureHeader()
+        configureBarButtons()
+        configureNavBar()
     }
     
     
@@ -36,9 +40,17 @@ class TableViewController: UITableViewController
         // Grabbing the first view in the xib file.
         let cell = Bundle.main.loadNibNamed("ItemCell", owner: self, options: nil)?.first as! ItemCell
         
-        // Set up the title & expiration.
+        // Set the background & selection color of the entire cell.
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        cell.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        cell.selectedBackgroundView = bgColorView
+        
+        // Set up the text and color for the title and expiration labels.
         cell.titleLabel.text = Controller.getCellTitle(cellIndex: indexPath.row)
+        cell.titleLabel.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         cell.expirationLabel.text = String(Controller.getCellDaysUntilReset(cellIndex: indexPath.row))
+        cell.expirationLabel.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         
         // Set up the cell's credit slots with correct images.
         let maxCredits = Controller.getCellMaxCredits(cellIndex: indexPath.row)
@@ -50,16 +62,19 @@ class TableViewController: UITableViewController
                                  cell.creditSlot5ImageView,
                                  cell.creditSlot6ImageView]
         
+        // Set up which credit slots should be empty.
         for index in 0...(maxCredits - 1)
-        { listOfCreditSlots[index]?.image = UIImage(named: "credit_empty") }
+        {
+            listOfCreditSlots[index]?.image = UIImage(named: "credit_empty")
+            listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
+        }
         
+        // Set up which credit slots should be full.
         for index in 0...(currentCredits - 1)
-        { listOfCreditSlots[index]?.image = UIImage(named: "credit_full") }
-        
-        // Set the selection color.
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = jazzberryJam
-        cell.selectedBackgroundView = bgColorView
+        {
+            listOfCreditSlots[index]?.image = UIImage(named: "credit_full")
+            listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
+        }
         
         // Return the constructed cell.
         return cell
@@ -86,16 +101,31 @@ class TableViewController: UITableViewController
     { return .lightContent }
     
     
-    // Style of the search bar.
-    func configureSerachBar()
+    // Set up styling for the table view as a whole.
+    func configureTableView()
+    { tableView.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
+    
+    
+    // Style the title text color.
+    func configureHeader()
     {
-        // Instantiate the search controller.
-        navigationItem.searchController = searchController
-        
-        // Configure visuals.
-        navigationItem.hidesSearchBarWhenScrolling = true // Hide/show search bar when scrolling.
-        searchController.searchBar.tintColor = .white  // Make the 'cancel' text white.
+        let textAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.getCurrentThemeColor(isBGColor: false)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
+    
+    
+    // Style the bar button items.
+    func configureBarButtons()
+    {
+        editButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+        addButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+    }
+    
+    
+    // Configure nav bar background color.
+    func configureNavBar()
+    { navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
     
     
     

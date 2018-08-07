@@ -16,6 +16,7 @@ class Controller
 
     
     
+    // Core Data
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var context = appDelegate.persistentContainer.viewContext
     
@@ -61,7 +62,7 @@ class Controller
         }
         catch
         {
-            print("getCellData() fetch request failed.")
+            print("getCellDataContainerEntityCount() fetch request failed.")
             return nil
         }
     }
