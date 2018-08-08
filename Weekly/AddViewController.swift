@@ -15,7 +15,7 @@ class AddViewController : UIViewController
     
     override func viewDidLoad()
     {
-        
+        configureView()
     }
     
     
@@ -27,6 +27,11 @@ class AddViewController : UIViewController
     // Style of status bar (light/dark).
     override var preferredStatusBarStyle: UIStatusBarStyle
     { return .lightContent }
+    
+    
+    // Configure the view's visual settings.
+    func configureView()
+    { self.view.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
     
     
     

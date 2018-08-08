@@ -23,7 +23,7 @@ class TableViewController: UITableViewController
     override func viewDidLoad()
     {
         // Set the theme (for testing).
-        ThemeManager.setCurrentTheme(themeName: "Gum", isInverted: false)
+        ThemeManager.setCurrentTheme(themeName: "Rich Red", isInverted: false)
         
         configureTableView()
         configureHeader()
@@ -123,9 +123,12 @@ class TableViewController: UITableViewController
     }
     
     
-    // Configure nav bar background color.
+    // Configure nav bar background color, as well as default text color.
     func configureNavBar()
-    { navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
+    {
+        navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        navigationController?.navigationBar.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+    }
     
     
     
