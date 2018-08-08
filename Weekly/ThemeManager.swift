@@ -25,11 +25,12 @@ class ThemeManager
         [ "Gum"         : [UIColor(red:0.98, green:0.58, blue:0.59, alpha:1.0), UIColor(red:0.13, green:0.24, blue:0.56, alpha:1.0)],
           "Rich Red"    : [UIColor(red:0.84, green:0.28, blue:0.25, alpha:1.0), UIColor(red:0.04, green:0.03, blue:0.02, alpha:1.0)],
           "Terminal"    : [UIColor(red:0.09, green:0.31, blue:0.26, alpha:1.0), UIColor(red:0.55, green:0.81, blue:0.65, alpha:1.0)],
-          "Blueprint"   : [UIColor(red:0.98, green:0.98, blue:0.95, alpha:1.0), UIColor(red:0.22, green:0.47, blue:0.60, alpha:1.0)],
-          "Mint"        : [UIColor(red:0.75, green:0.99, blue:0.76, alpha:1.0), UIColor(red:0.54, green:0.36, blue:0.33, alpha:1.0)],
-          "Carrot"      : [UIColor(red:0.14, green:0.16, blue:0.27, alpha:1.0), UIColor(red:0.85, green:0.56, blue:0.24, alpha:1.0)],
-          "Blue Night"  : [UIColor(red:0.14, green:0.05, blue:0.02, alpha:1.0), UIColor(red:0.06, green:0.69, blue:0.64, alpha:1.0)],
-          "Plum"        : [UIColor(red:0.93, green:0.78, blue:0.33, alpha:1.0), UIColor(red:0.40, green:0.23, blue:0.44, alpha:1.0)]]
+          "Blueprint"   : [UIColor(red:0.22, green:0.47, blue:0.60, alpha:1.0), UIColor(red:0.98, green:0.98, blue:0.95, alpha:1.0)],
+          "Mint"        : [UIColor(red:0.22, green:0.24, blue:0.33, alpha:1.0), UIColor(red:0.09, green:0.94, blue:0.73, alpha:1.0)],
+          "Leather"     : [UIColor(red:0.68, green:0.40, blue:0.33, alpha:1.0), UIColor(red:0.06, green:0.00, blue:0.04, alpha:1.0)],
+          "Blue Night"  : [UIColor(red:0.05, green:0.15, blue:0.23, alpha:1.0), UIColor(red:0.40, green:0.59, blue:0.74, alpha:1.0)],
+          "Plum"        : [UIColor(red:0.40, green:0.23, blue:0.44, alpha:1.0), UIColor(red:0.93, green:0.78, blue:0.33, alpha:1.0)],
+          "Grape"       : [UIColor(red:0.70, green:0.47, blue:0.72, alpha:1.0), UIColor(red:0.14, green:0.09, blue:0.15, alpha:1.0)]]
     
     
     
