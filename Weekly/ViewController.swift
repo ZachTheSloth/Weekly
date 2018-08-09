@@ -23,7 +23,7 @@ class TableViewController: UITableViewController
     override func viewDidLoad()
     {
         // Set the theme (for testing).
-        ThemeManager.setCurrentTheme(themeName: "Rich Red", isInverted: false)
+        ThemeManager.setCurrentTheme(themeName: "Gum", isInverted: false)
         
         configureTableView()
         configureHeader()
