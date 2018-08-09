@@ -22,10 +22,26 @@ class AddViewController : UIViewController
     
     
     
+    
     override func viewDidLoad()
     {
         configureView()
         configureUIElements()
+    }
+    
+    
+    
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton)
+    {
+        // Get attributes from UI elements.
+        let title = titleTextBox.text
+        let expiration = creditExpirationSelector.selectedSegmentIndex
+        let maxCredits = creditsSelector.selectedSegmentIndex
+        
+        // Add a new cell in the model.
+        Controller.createCell(title: title!, resetCycleLength: expiration, maxCredits: maxCredits)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     

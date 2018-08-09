@@ -33,6 +33,13 @@ class TableViewController: UITableViewController
     
     
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        tableView.reloadData()
+    }
+    
+    
+    
     
    // Constructs the requested cell by the table view, by applying the correct data to the xib template.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
