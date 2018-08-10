@@ -36,8 +36,8 @@ class AddViewController : UIViewController
     {
         // Get attributes from UI elements.
         let title = titleTextBox.text
-        let expiration = creditExpirationSelector.selectedSegmentIndex
-        let maxCredits = creditsSelector.selectedSegmentIndex
+        let expiration = creditExpirationSelector.selectedSegmentIndex + 1
+        let maxCredits = creditsSelector.selectedSegmentIndex + 1
         
         // Add a new cell in the model.
         Controller.createCell(title: title!, resetCycleLength: expiration, maxCredits: maxCredits)

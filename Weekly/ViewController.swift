@@ -23,7 +23,7 @@ class TableViewController: UITableViewController
     override func viewDidLoad()
     {
         // Set the theme (for testing).
-        ThemeManager.setCurrentTheme(themeName: "Gum", isInverted: false)
+        ThemeManager.setCurrentTheme(themeName: "Blue Night", isInverted: false)
         
         configureTableView()
         configureHeader()
@@ -70,14 +70,14 @@ class TableViewController: UITableViewController
                                  cell.creditSlot6ImageView]
         
         // Set up which credit slots should be empty.
-        for index in 0...(maxCredits - 1)
+        for index in 0..<(maxCredits)
         {
             listOfCreditSlots[index]?.image = UIImage(named: "credit_empty")
             listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
         }
         
         // Set up which credit slots should be full.
-        for index in 0...(currentCredits - 1)
+        for index in 0..<(currentCredits)
         {
             listOfCreditSlots[index]?.image = UIImage(named: "credit_full")
             listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
@@ -85,6 +85,30 @@ class TableViewController: UITableViewController
         
         // Return the constructed cell.
         return cell
+    }
+    
+    
+    
+    
+    // Selected row gets 1 credit removed.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        // Get cell info that won't change.
+        let title = Controller.getCellTitle(cellIndex: indexPath.row)
+        let resetCycleLength = Controller.getCellResetCycleLength(cellIndex: indexPath.row)
+        let daysUntilReset = Controller.getCellDaysUntilReset(cellIndex: indexPath.row)
+        let maxCredits = Controller.getCellMaxCredits(cellIndex: indexPath.row)
+        
+        // Get current credits.
+        var currentCredits = Controller.getCellCurrentCredits(cellIndex: indexPath.row)
+        if currentCredits > 0
+        { currentCredits -= 1 }
+        
+        // Update selected cell.
+        Controller.updateCell(index: indexPath.row, title: title, resetCycleLength: resetCycleLength, daysUntilReset: daysUntilReset, maxCredits: maxCredits, currentCredits: currentCredits)
+        
+        // Refresh the view.
+        tableView.reloadData()
     }
     
     

@@ -135,9 +135,20 @@ class Controller
     
     
     
-    static func updateCell()
+    static func updateCell(index: Int, title: String, resetCycleLength: Int, daysUntilReset: Int, maxCredits: Int, currentCredits: Int)
     {
+        // Get NSManagedObject refrence.
+        let cell = getCellData(cellIndex: index)
         
+        // Set appropriate data.
+        cell?.setValue(title, forKey: "title")
+        cell?.setValue(resetCycleLength, forKey: "resetCycleLength")
+        cell?.setValue(daysUntilReset, forKey: "daysUntilReset")
+        cell?.setValue(maxCredits, forKey: "maxCredits")
+        cell?.setValue(currentCredits, forKey: "currentCredits")
+        
+        // Save model.
+        saveData()
     }
     
     
