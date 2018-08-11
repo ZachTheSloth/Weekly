@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddViewController : UIViewController
+class AddViewController : UIViewController, UITextFieldDelegate
 {
     
     
     
+    // IBOutlets
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var creditExpirationSelectionTitle: UILabel!
     @IBOutlet weak var creditExpirationSelector: UISegmentedControl!
@@ -23,15 +24,7 @@ class AddViewController : UIViewController
     
     
     
-    override func viewDidLoad()
-    {
-        configureView()
-        configureUIElements()
-    }
-    
-    
-    
-    
+    // IBActions
     @IBAction func saveButtonPressed(_ sender: UIButton)
     {
         // Get attributes from UI elements.
@@ -42,6 +35,31 @@ class AddViewController : UIViewController
         // Add a new cell in the model.
         Controller.createCell(title: title!, resetCycleLength: expiration, maxCredits: maxCredits)
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    
+    
+    override func viewDidLoad()
+    {
+        // This allows the keyboard to be hidden by this class.
+        titleTextBox.delegate = self
+        
+        // Configuration
+        configureView()
+        configureUIElements()
+        configureKeyboard()
+    }
+    
+    
+    
+    
+    // This will hide the keyboard when the 'done' button is pressed.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
     }
     
     
@@ -93,6 +111,16 @@ class AddViewController : UIViewController
         
         // Customize the save button.
         saveButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+    }
+    
+    
+    // Configures keyboard.
+    func configureKeyboard()
+    {
+        // Keyboard Auto-Hide When View Tapped
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
     
     
