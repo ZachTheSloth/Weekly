@@ -54,8 +54,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekly" id="MUm-bq-M3d">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="ef8-lg-fQ5">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" style="plain" id="nms-te-4Wd">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="chy-xN-Pxg" kind="show" id="iTI-Dt-cFm"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Qd-Gl-4PU">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,13 +69,41 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="7Qd-Gl-4PU" id="Va3-bn-UB8"/>
-                        <outlet property="editButton" destination="ef8-lg-fQ5" id="hAA-g0-xgB"/>
+                        <outlet property="settingsButton" destination="nms-te-4Wd" id="0U6-dR-ry4"/>
                         <outlet property="tableView" destination="U63-RH-FSM" id="3se-SS-dsE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ht-hN-ioj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-337" y="19"/>
+            <point key="canvasLocation" x="-338.39999999999998" y="18.440779610194905"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="gu7-3b-qYQ">
+            <objects>
+                <tableViewController id="chy-xN-Pxg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPo-tR-vJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="S0N-Ai-E5o">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S0N-Ai-E5o" id="VlS-Nm-u4T">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="chy-xN-Pxg" id="Yd6-v6-07X"/>
+                            <outlet property="delegate" destination="chy-xN-Pxg" id="JDS-LC-YAk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGn-G6-Idi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="356"/>
         </scene>
         <!--New Item-->
         <scene sceneID="pOs-uU-ugT">
@@ -187,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5xF-6W-Ba6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421.60000000000002" y="18.440779610194905"/>
+            <point key="canvasLocation" x="449" y="-318"/>
         </scene>
     </scenes>
 </document>

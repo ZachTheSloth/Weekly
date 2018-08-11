@@ -14,7 +14,7 @@ class TableViewController: UITableViewController
     
     
     // IBOutlets
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     
@@ -25,6 +25,10 @@ class TableViewController: UITableViewController
         // Set the theme (for testing).
         ThemeManager.setCurrentTheme(themeName: "Blue Night", isInverted: false)
         
+        // Update info displayed in table.
+        tableView.reloadData()
+        
+        // Configuration.
         configureTableView()
         configureHeader()
         configureBarButtons()
@@ -33,9 +37,17 @@ class TableViewController: UITableViewController
     
     
     
+    
     override func viewDidAppear(_ animated: Bool)
     {
+        // Update info displayed in table.
         tableView.reloadData()
+        
+        // Configuration.
+        configureTableView()
+        configureHeader()
+        configureBarButtons()
+        configureNavBar()
     }
     
     
@@ -149,7 +161,7 @@ class TableViewController: UITableViewController
     // Style the bar button items.
     func configureBarButtons()
     {
-        editButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+        settingsButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         addButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
     }
     

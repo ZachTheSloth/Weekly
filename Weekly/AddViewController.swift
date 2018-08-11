@@ -54,6 +54,17 @@ class AddViewController : UIViewController, UITextFieldDelegate
     
     
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        // Configuration
+        configureView()
+        configureUIElements()
+        configureKeyboard()
+    }
+    
+    
+    
+    
     // This will hide the keyboard when the 'done' button is pressed.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
