@@ -13,8 +13,7 @@ import CoreData
 class ThemeManager
 {
     
-    
-    
+
     // Core Data
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var context = appDelegate.persistentContainer.viewContext
@@ -33,8 +32,6 @@ class ThemeManager
           "Grape"       : [UIColor(red:0.70, green:0.47, blue:0.72, alpha:1.0), UIColor(red:0.14, green:0.09, blue:0.15, alpha:1.0)]]
     
     
-    
-    
     public static func getTheme(themeName: String, isInverted: Bool) -> [UIColor]
     {
         if isInverted // Swap the color order.
@@ -47,8 +44,6 @@ class ThemeManager
         }
         return themeLibrary[themeName]!
     }
-    
-    
     
     
     public static func getCurrentThemeColor(isBGColor: Bool) -> UIColor?
@@ -72,6 +67,16 @@ class ThemeManager
     }
     
     
+    public static func getThemeByIndex(index: Int) -> String
+    {
+        return Array(themeLibrary.keys)[index]
+    }
+    
+    
+    public static func getThemeCount() -> Int
+    {
+        return Array(themeLibrary.keys).count
+    }
     
     
     public static func setCurrentTheme(themeName: String, isInverted: Bool)
@@ -102,7 +107,6 @@ class ThemeManager
             print("setCurrentTheme fetch request failed.")
         }
     }
-    
-    
+
     
 }

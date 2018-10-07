@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController
+class TableViewController : UITableViewController
 {
  
     
@@ -25,14 +25,14 @@ class TableViewController: UITableViewController
         // Set the theme (for testing).
         ThemeManager.setCurrentTheme(themeName: "Blue Night", isInverted: false)
         
-        // Update info displayed in table.
-        tableView.reloadData()
-        
         // Configuration.
         configureTableView()
         configureHeader()
         configureBarButtons()
         configureNavBar()
+        
+        // Update info displayed in table.
+        tableView.reloadData()
     }
     
     
@@ -40,23 +40,22 @@ class TableViewController: UITableViewController
     
     override func viewDidAppear(_ animated: Bool)
     {
-        // Update info displayed in table.
-        tableView.reloadData()
-        
         // Configuration.
         configureTableView()
         configureHeader()
         configureBarButtons()
         configureNavBar()
+        
+        // Update info displayed in table.
+        tableView.reloadData()
     }
     
     
     
     
-   // Constructs the requested cell by the table view, by applying the correct data to the xib template.
+    // Constructs the requested cell by the table view, by applying the correct data to the xib template.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        // Grabbing the first view in the xib file.
         let cell = Bundle.main.loadNibNamed("ItemCell", owner: self, options: nil)?.first as! ItemCell
         
         // Set the background & selection color of the entire cell.
@@ -95,7 +94,6 @@ class TableViewController: UITableViewController
             listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
         }
         
-        // Return the constructed cell.
         return cell
     }
     

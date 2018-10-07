@@ -14,24 +14,16 @@ class Controller
 {
     
 
-    
-    
     // Core Data
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var context = appDelegate.persistentContainer.viewContext
-    
-    
     
     
     init()
     {}
     
     
-    
-    
     // METHODS FOR RETRIEVING CELL DATA
-    
-    
     
     
     static private func getCellData(cellIndex: Int) -> NSManagedObject?
@@ -50,8 +42,6 @@ class Controller
     }
     
     
-    
-    
     static func getCellDataContainerEntityCount() -> Int?
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CellDataContainer")
@@ -68,15 +58,11 @@ class Controller
     }
     
     
-    
-    
     static func getCellTitle(cellIndex: Int) -> String
     {
         let cellDataContainer = getCellData(cellIndex: cellIndex)
         return cellDataContainer?.value(forKey: "title") as! String
     }
-    
-    
     
     
     static func getCellResetCycleLength(cellIndex: Int) -> Int
@@ -86,15 +72,11 @@ class Controller
     }
     
     
-    
-    
     static func getCellDaysUntilReset(cellIndex: Int) -> Int
     {
         let cellDataContainer = getCellData(cellIndex: cellIndex)
         return cellDataContainer?.value(forKey: "daysUntilReset") as! Int
     }
-    
-    
     
     
     static func getCellMaxCredits(cellIndex: Int) -> Int
@@ -104,8 +86,6 @@ class Controller
     }
     
     
-    
-    
     static func getCellCurrentCredits(cellIndex: Int) -> Int
     {
         let cellDataContainer = getCellData(cellIndex: cellIndex)
@@ -113,6 +93,7 @@ class Controller
     }
     
     
+    // Creating/Removing Item Cells
     
     
     static func createCell(title: String, resetCycleLength: Int, maxCredits: Int)
@@ -133,8 +114,6 @@ class Controller
     }
     
     
-    
-    
     static func updateCell(index: Int, title: String, resetCycleLength: Int, daysUntilReset: Int, maxCredits: Int, currentCredits: Int)
     {
         // Get NSManagedObject refrence.
@@ -152,15 +131,11 @@ class Controller
     }
     
     
-    
-    
     static func removeCell(cellIndex: Int)
     {
         context.delete(getCellData(cellIndex: cellIndex)!)
         saveData()
     }
-    
-    
     
     
     static func saveData()
@@ -170,7 +145,6 @@ class Controller
         catch
         { print("Failed to save data context.") }
     }
-    
     
     
 }

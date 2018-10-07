@@ -20,6 +20,9 @@
 		92ABBB8D21140A1300721F19 /* WeeklyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ABBB8C21140A1300721F19 /* WeeklyUITests.swift */; };
 		92ABBB9C21140B7F00721F19 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ABBB9A21140B7F00721F19 /* ItemCell.swift */; };
 		92ABBB9D21140B7F00721F19 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ABBB9B21140B7F00721F19 /* ItemCell.xib */; };
+		92DE0964211F5F7700D91604 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE0963211F5F7700D91604 /* SettingsViewController.swift */; };
+		92DE0967212F890B00D91604 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE0965212F890B00D91604 /* ThemeCell.swift */; };
+		92DE0968212F890B00D91604 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE0966212F890B00D91604 /* ThemeCell.xib */; };
 		92F2634621178D7900CE0943 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F2634521178D7900CE0943 /* Controller.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		92ABBB8E21140A1300721F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92ABBB9A21140B7F00721F19 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		92ABBB9B21140B7F00721F19 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		92DE0963211F5F7700D91604 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92DE0965212F890B00D91604 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		92DE0966212F890B00D91604 /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		92F2634521178D7900CE0943 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,10 +120,13 @@
 				92ABBB6921140A1200721F19 /* AppDelegate.swift */,
 				92ABBB6B21140A1200721F19 /* ViewController.swift */,
 				923FB8C62118F7E90052FE4C /* AddViewController.swift */,
+				92DE0963211F5F7700D91604 /* SettingsViewController.swift */,
 				92ABBB6D21140A1200721F19 /* Main.storyboard */,
 				923FB8C821190E250052FE4C /* ThemeManager.swift */,
 				92ABBB9A21140B7F00721F19 /* ItemCell.swift */,
 				92ABBB9B21140B7F00721F19 /* ItemCell.xib */,
+				92DE0965212F890B00D91604 /* ThemeCell.swift */,
+				92DE0966212F890B00D91604 /* ThemeCell.xib */,
 				92ABBB7321140A1300721F19 /* Assets.xcassets */,
 				92ABBB7521140A1300721F19 /* LaunchScreen.storyboard */,
 				92F2634521178D7900CE0943 /* Controller.swift */,
@@ -253,6 +262,7 @@
 				92ABBB9D21140B7F00721F19 /* ItemCell.xib in Resources */,
 				92ABBB7721140A1300721F19 /* LaunchScreen.storyboard in Resources */,
 				92ABBB7421140A1300721F19 /* Assets.xcassets in Resources */,
+				92DE0968212F890B00D91604 /* ThemeCell.xib in Resources */,
 				92ABBB6F21140A1200721F19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F2634621178D7900CE0943 /* Controller.swift in Sources */,
+				92DE0967212F890B00D91604 /* ThemeCell.swift in Sources */,
 				92ABBB9C21140B7F00721F19 /* ItemCell.swift in Sources */,
 				923FB8C72118F7E90052FE4C /* AddViewController.swift in Sources */,
 				92ABBB6C21140A1200721F19 /* ViewController.swift in Sources */,
@@ -286,6 +297,7 @@
 				92846F5A211A3D5800FA8934 /* UniversalExtensions.swift in Sources */,
 				92ABBB7221140A1200721F19 /* Weekly.xcdatamodeld in Sources */,
 				923FB8C921190E250052FE4C /* ThemeManager.swift in Sources */,
+				92DE0964211F5F7700D91604 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
