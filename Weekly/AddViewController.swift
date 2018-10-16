@@ -10,9 +10,6 @@ import UIKit
 
 class AddViewController : UIViewController, UITextFieldDelegate
 {
-    
-    
-    
     // IBOutlets
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var creditExpirationSelectionTitle: UILabel!
@@ -20,8 +17,6 @@ class AddViewController : UIViewController, UITextFieldDelegate
     @IBOutlet weak var creditsSelectorTitle: UILabel!
     @IBOutlet weak var creditsSelector: UISegmentedControl!
     @IBOutlet weak var saveButton: UIButton!
-    
-    
     
     
     // IBActions
@@ -38,8 +33,6 @@ class AddViewController : UIViewController, UITextFieldDelegate
     }
     
     
-    
-    
     override func viewDidLoad()
     {
         // This allows the keyboard to be hidden by this class.
@@ -51,18 +44,14 @@ class AddViewController : UIViewController, UITextFieldDelegate
         configureKeyboard()
     }
     
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool)
+
+    override func viewWillAppear(_ animated: Bool)
     {
         // Configuration
         configureView()
         configureUIElements()
         configureKeyboard()
     }
-    
-    
     
     
     // This will hide the keyboard when the 'done' button is pressed.
@@ -72,8 +61,6 @@ class AddViewController : UIViewController, UITextFieldDelegate
         self.view.endEditing(true)
         return true
     }
-    
-    
     
     
     // CONFIGURATION METHODS
@@ -133,7 +120,4 @@ class AddViewController : UIViewController, UITextFieldDelegate
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
     }
-    
-    
-    
 }

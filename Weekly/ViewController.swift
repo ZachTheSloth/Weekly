@@ -10,47 +10,30 @@ import UIKit
 
 class TableViewController : UITableViewController
 {
- 
-    
-    
     // IBOutlets
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     
-    
-    
     override func viewDidLoad()
     {
-        // Set the theme (for testing).
-        ThemeManager.setCurrentTheme(themeName: "Blue Night", isInverted: false)
+        // check if there is a current theme set. if not, set one.
+        if(ThemeManager.getCurrentThemeColor(isBGColor: false) == nil)
+        { ThemeManager.setCurrentTheme(themeName: "Blue Night", isInverted: false) }
         
-        // Configuration.
-        configureTableView()
-        configureHeader()
-        configureBarButtons()
-        configureNavBar()
-        
-        // Update info displayed in table.
-        tableView.reloadData()
+        configureViewColors()
     }
     
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        configureViewColors()
+        tableView.reloadData()
+    }
     
     
     override func viewDidAppear(_ animated: Bool)
-    {
-        // Configuration.
-        configureTableView()
-        configureHeader()
-        configureBarButtons()
-        configureNavBar()
-        
-        // Update info displayed in table.
-        tableView.reloadData()
-    }
-    
-    
+    { configureViewColors() }
     
     
     // Constructs the requested cell by the table view, by applying the correct data to the xib template.
@@ -98,8 +81,6 @@ class TableViewController : UITableViewController
     }
     
     
-    
-    
     // Selected row gets 1 credit removed.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -122,9 +103,7 @@ class TableViewController : UITableViewController
     }
     
     
-    
-    
-    // CONFIGURATION METHODS
+    // SYSTEM CONFIGURATION
     
     
     // Sets the height of the table cells.
@@ -142,36 +121,30 @@ class TableViewController : UITableViewController
     { return .lightContent }
     
     
-    // Set up styling for the table view as a whole.
-    func configureTableView()
-    { tableView.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
+    // THEME CONFIGURATION
     
     
-    // Style the title text color.
-    func configureHeader()
+    func configureViewColors()
     {
+        // configure table view
+        tableView.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        
+        // configure header
         let textAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.getCurrentThemeColor(isBGColor: false)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-    }
-    
-    
-    // Style the bar button items.
-    func configureBarButtons()
-    {
+        
+        // configure bar buttons
         settingsButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         addButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
-    }
-    
-    
-    // Configure nav bar background color, as well as default text color.
-    func configureNavBar()
-    {
+        
+        // configure bar buttons
+        navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        navigationController?.navigationBar.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+        
+        // configure navigation bar
         navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         navigationController?.navigationBar.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
     }
-    
-    
-    
 }
 

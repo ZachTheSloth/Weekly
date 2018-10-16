@@ -12,8 +12,6 @@ import CoreData
 
 class ThemeManager
 {
-    
-
     // Core Data
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var context = appDelegate.persistentContainer.viewContext
@@ -46,14 +44,30 @@ class ThemeManager
     }
     
     
+    public static func getThemesAsOrderedArray() -> [String]
+    {
+        return Array(themeLibrary.keys)
+    }
+    
+    
     public static func getCurrentThemeColor(isBGColor: Bool) -> UIColor?
     {
+        var themeName = "Blue Night"
+        var isInverted = false
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentThemeContainer")
         do
         {
             let result = try context.fetch(request) as! [NSManagedObject]
-            let themeName = result[0].value(forKey: "themeName") as! String
-            let isInverted = result[0].value(forKey: "isInverted") as! Bool
+            if result.count != 0
+            {
+                themeName = result[0].value(forKey: "themeName") as! String
+                isInverted = result[0].value(forKey: "isInverted") as! Bool
+            }
+            else
+            { return nil }
+            
+            // return the requested color
             if isBGColor
             { return getTheme(themeName: themeName, isInverted: isInverted)[0] }
             else
@@ -67,9 +81,20 @@ class ThemeManager
     }
     
     
-    public static func getThemeByIndex(index: Int) -> String
+    public static func getCurrentThemeName() -> String?
     {
-        return Array(themeLibrary.keys)[index]
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentThemeContainer")
+        do
+        {
+            let result = try context.fetch(request) as! [NSManagedObject]
+            let themeName = result[0].value(forKey: "themeName") as! String
+            return themeName
+        }
+        catch
+        {
+            print("getCurrentThemeName() fetch request failed.")
+            return ""
+        }
     }
     
     
@@ -107,6 +132,4 @@ class ThemeManager
             print("setCurrentTheme fetch request failed.")
         }
     }
-
-    
 }

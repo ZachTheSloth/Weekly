@@ -12,9 +12,7 @@ import CoreData
 
 class Controller
 {
-    
-
-    // Core Data
+    // core data variables
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
     static var context = appDelegate.persistentContainer.viewContext
     
@@ -23,7 +21,51 @@ class Controller
     {}
     
     
-    // METHODS FOR RETRIEVING CELL DATA
+    /// Save Context
+    static func saveData()
+    {
+        do
+        { try context.save() }
+        catch
+        { print("Failed to save data context.") }
+    }
+    
+    
+    // GETTING AND SETTING LAUNCH TRACKER
+    
+    
+    private static func getAppOpenData() -> NSManagedObject?
+    {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HasAppBeenLaunchedContainer")
+        do
+        {
+            let result = try context.fetch(request) as! [NSManagedObject]
+            return result[0]
+        } catch
+        {
+            print("getAppOpenStatus() fetch request failed.")
+            return nil
+        }
+    }
+    
+    
+    static func getAppOpenStatus() -> Bool
+    {
+        let appOpenStatus = getAppOpenData()
+        return appOpenStatus?.value(forKey: "status") as! Bool
+    }
+    
+    
+    static func setAppOpenStatus(status: Bool)
+    {
+        // get NSManagedObject refrence
+        let appOpenStatus = getAppOpenData()
+        appOpenStatus?.setValue(status, forKey: "status")
+        saveData()
+    }
+    
+    
+    // GETTING CELL DATA
     
     
     static private func getCellData(cellIndex: Int) -> NSManagedObject?
@@ -93,7 +135,7 @@ class Controller
     }
     
     
-    // Creating/Removing Item Cells
+    // MODIFYING CELL DATA
     
     
     static func createCell(title: String, resetCycleLength: Int, maxCredits: Int)
@@ -136,15 +178,4 @@ class Controller
         context.delete(getCellData(cellIndex: cellIndex)!)
         saveData()
     }
-    
-    
-    static func saveData()
-    {
-        do
-        { try context.save() }
-        catch
-        { print("Failed to save data context.") }
-    }
-    
-    
 }

@@ -11,37 +11,29 @@ import UIKit
 
 class SettingsTableViewController : UITableViewController
 {
+    var themes = ThemeManager.getThemesAsOrderedArray()
     
     
     override func viewDidLoad()
+    { configureViewColors() }
+    
+    
+    override func viewWillAppear(_ animated: Bool)
     {
-        configureView()
-        configureHeader()
-        configureNavBar()
-        
-        // Update info displayed in table.
         tableView.reloadData()
+        configureViewColors()
     }
     
     
     override func viewDidAppear(_ animated: Bool)
-    {
-        configureView()
-        configureHeader()
-        configureNavBar()
-        
-        // Update info displayed in table.
-        tableView.reloadData()
-    }
+    { configureViewColors() }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = Bundle.main.loadNibNamed("ThemeCell", owner: self, options: nil)?.first as! ThemeCell
         
-        let themeName = ThemeManager.getThemeByIndex(index: indexPath.row)
-        print(themeName)
-        
+        let themeName = themes[indexPath.row]
         let foregroundColor = ThemeManager.getTheme(themeName: themeName, isInverted: false)[0]
         let backgroundColor = ThemeManager.getTheme(themeName: themeName, isInverted: false)[1]
         
@@ -56,16 +48,27 @@ class SettingsTableViewController : UITableViewController
         cell.nameLabel.textColor = foregroundColor
         
         // Set the selection image:
-        cell.selectionImage.image = UIImage(named: "credit_empty")
+        if themeName == ThemeManager.getCurrentThemeName()
+        { cell.selectionImage.image = UIImage(named: "credit_full") }
+        else
+        { cell.selectionImage.image = UIImage(named: "credit_empty") }
         cell.selectionImage.setImageColor(color: foregroundColor)
-        
-        tableView.reloadData()
         
         return cell
     }
     
     
-    // Configuration methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        ThemeManager.setCurrentTheme(themeName: themes[indexPath.row], isInverted: false)
+        
+        // update current view
+        configureViewColors()
+        tableView.reloadData()
+    }
+    
+    
+    // SYSTEM CONFIGURATION
     
     
     // Sets the height of the table cells.
@@ -83,26 +86,21 @@ class SettingsTableViewController : UITableViewController
     { return .lightContent }
     
     
-    // Configure the view's visuals
-    func configureView()
-    { self.view.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
+    // THEME CONFIGURATION
     
     
-    // Style the title text color.
-    func configureHeader()
+    func configureViewColors()
     {
+        // configure view
+        self.view.backgroundColor = UIColor.black
+        
+        // configure header
         let textAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.getCurrentThemeColor(isBGColor: false)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-    }
-    
-    
-    // Configure nav bar background color, as well as default text color.
-    func configureNavBar()
-    {
+        
+        // configure nav bar
         navigationController?.navigationBar.barTintColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         navigationController?.navigationBar.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
     }
-    
-    
 }

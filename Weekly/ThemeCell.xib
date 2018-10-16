@@ -19,9 +19,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIP-z6-NAu">
-                        <rect key="frame" x="16" y="21" width="230" height="36"/>
+                        <rect key="frame" x="16" y="21" width="84" height="36"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="36" id="6Ax-Er-PrE"/>
+                            <constraint firstAttribute="height" constant="36" id="3qG-Yq-Vqd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                         <nil key="textColor"/>
@@ -30,20 +30,19 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Vti-Iw-RsQ">
                         <rect key="frame" x="254" y="14" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Vti-Iw-RsQ" secondAttribute="height" multiplier="1:1" id="be4-Fn-VWv"/>
-                            <constraint firstAttribute="width" constant="50" id="eu0-3b-Ejn"/>
-                            <constraint firstAttribute="height" constant="50" id="vc7-bj-B3R"/>
+                            <constraint firstAttribute="width" secondItem="Vti-Iw-RsQ" secondAttribute="height" multiplier="1:1" id="U9d-hs-6ko"/>
+                            <constraint firstAttribute="height" constant="50" id="lQB-Wm-D3M"/>
+                            <constraint firstAttribute="width" constant="50" id="yvi-fQ-UDM"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DIP-z6-NAu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="VmV-oB-HQF"/>
-                    <constraint firstItem="Vti-Iw-RsQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="YeX-21-953"/>
-                    <constraint firstItem="DIP-z6-NAu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="e5w-na-wGN"/>
-                    <constraint firstAttribute="bottom" secondItem="DIP-z6-NAu" secondAttribute="bottom" constant="22.5" id="ffW-GE-y0e"/>
-                    <constraint firstItem="Vti-Iw-RsQ" firstAttribute="leading" secondItem="DIP-z6-NAu" secondAttribute="trailing" constant="8" id="q8y-K0-lRm"/>
-                    <constraint firstAttribute="bottom" secondItem="Vti-Iw-RsQ" secondAttribute="bottom" constant="15.5" id="tcE-X4-gZX"/>
-                    <constraint firstAttribute="trailing" secondItem="Vti-Iw-RsQ" secondAttribute="trailing" constant="16" id="u73-Nd-TNU"/>
+                    <constraint firstAttribute="bottom" secondItem="DIP-z6-NAu" secondAttribute="bottom" constant="22.5" id="35u-p2-Evr"/>
+                    <constraint firstAttribute="bottom" secondItem="Vti-Iw-RsQ" secondAttribute="bottom" constant="15.5" id="dOm-3f-6fH"/>
+                    <constraint firstAttribute="trailing" secondItem="Vti-Iw-RsQ" secondAttribute="trailing" constant="16" id="fiW-Ti-pjY"/>
+                    <constraint firstItem="DIP-z6-NAu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hJ5-Zk-YaM"/>
+                    <constraint firstItem="DIP-z6-NAu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="lcd-Zu-N1q"/>
+                    <constraint firstItem="Vti-Iw-RsQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="vO6-o1-idU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
