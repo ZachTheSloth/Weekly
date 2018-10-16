@@ -10,9 +10,15 @@ import UIKit
 
 class TableViewController : UITableViewController
 {
-    // IBOutlets
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    
+    
+    /*
+    -----------------------------
+    VIEW INITIALIZATION FUNCTIONS
+    -----------------------------
+    */
     
     
     override func viewDidLoad()
@@ -36,24 +42,34 @@ class TableViewController : UITableViewController
     { configureViewColors() }
     
     
-    // Constructs the requested cell by the table view, by applying the correct data to the xib template.
+    /*
+    -----------------------------------------------
+    TABLE VIEW CONSTRUCTION/CONFIGURATION FUNCTIONS
+    -----------------------------------------------
+    */
+    
+    
+    /**
+    Constructs one cell for the table view.
+    Called as many times as defined in the tableView(didSelectRowAt) function.
+    */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = Bundle.main.loadNibNamed("ItemCell", owner: self, options: nil)?.first as! ItemCell
         
-        // Set the background & selection color of the entire cell.
+        // set the background & selection color of the entire cell
         let bgColorView = UIView()
         bgColorView.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         cell.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         cell.selectedBackgroundView = bgColorView
         
-        // Set up the text and color for the title and expiration labels.
+        // set up the text/color for the title and expiration labels
         cell.titleLabel.text = Controller.getCellTitle(cellIndex: indexPath.row)
         cell.titleLabel.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         cell.expirationLabel.text = String(Controller.getCellDaysUntilReset(cellIndex: indexPath.row))
         cell.expirationLabel.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         
-        // Set up the cell's credit slots with correct images.
+        // set up the cell's credit slots with correct images
         let maxCredits = Controller.getCellMaxCredits(cellIndex: indexPath.row)
         let currentCredits = Controller.getCellCurrentCredits(cellIndex: indexPath.row)
         var listOfCreditSlots = [cell.creditSlot1ImageView,
@@ -63,16 +79,14 @@ class TableViewController : UITableViewController
                                  cell.creditSlot5ImageView,
                                  cell.creditSlot6ImageView]
         
-        // Set up which credit slots should be empty.
-        for index in 0..<(maxCredits)
-        {
+        // set up which credit slots should be empty
+        for index in 0..<(maxCredits) {
             listOfCreditSlots[index]?.image = UIImage(named: "credit_empty")
             listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
         }
         
-        // Set up which credit slots should be full.
-        for index in 0..<(currentCredits)
-        {
+        // set up which credit slots should be full
+        for index in 0..<(currentCredits) {
             listOfCreditSlots[index]?.image = UIImage(named: "credit_full")
             listOfCreditSlots[index]?.setImageColor(color: ThemeManager.getCurrentThemeColor(isBGColor: false)!)
         }
@@ -81,49 +95,58 @@ class TableViewController : UITableViewController
     }
     
     
-    // Selected row gets 1 credit removed.
+    /// Removes 1 credit from the selected view, updates the table view.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        // Get cell info that won't change.
+        // get cell info (that won't change)
         let title = Controller.getCellTitle(cellIndex: indexPath.row)
         let resetCycleLength = Controller.getCellResetCycleLength(cellIndex: indexPath.row)
         let daysUntilReset = Controller.getCellDaysUntilReset(cellIndex: indexPath.row)
         let maxCredits = Controller.getCellMaxCredits(cellIndex: indexPath.row)
         
-        // Get current credits.
+        // get current credit count for the selected cell, subtract one
         var currentCredits = Controller.getCellCurrentCredits(cellIndex: indexPath.row)
         if currentCredits > 0
         { currentCredits -= 1 }
         
-        // Update selected cell.
+        // update selected cell
         Controller.updateCell(index: indexPath.row, title: title, resetCycleLength: resetCycleLength, daysUntilReset: daysUntilReset, maxCredits: maxCredits, currentCredits: currentCredits)
         
-        // Refresh the view.
+        // refresh the view
         tableView.reloadData()
     }
     
     
-    // SYSTEM CONFIGURATION
-    
-    
-    // Sets the height of the table cells.
+    /// Sets the height of the table cells.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     { return 120 }
     
     
-    // Sets the number of rows in the table view (should be equal to the # of entries in the data).
+    /// Sets the number of rows in the table view (should be equal to the # of entries in the data).
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     { return Controller.getCellDataContainerEntityCount()! }
     
     
-    // Style of status bar (light/dark).
+    /*
+    ------------------------------
+    SYSTEM CONFIGURATION FUNCTIONS
+    ------------------------------
+    */
+    
+    
+    /// Sets the style of status bar (light/dark).
     override var preferredStatusBarStyle: UIStatusBarStyle
     { return .lightContent }
     
     
-    // THEME CONFIGURATION
+    /*
+    -----------------------------
+    THEME CONFIGURATION FUNCTIONS
+    -----------------------------
+    */
     
     
+    /// Style the view with colors from the current theme.
     func configureViewColors()
     {
         // configure table view
