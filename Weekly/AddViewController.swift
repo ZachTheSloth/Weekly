@@ -10,7 +10,6 @@ import UIKit
 
 class AddViewController : UIViewController, UITextFieldDelegate
 {
-    // IBOutlets
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var creditExpirationSelectionTitle: UILabel!
     @IBOutlet weak var creditExpirationSelector: UISegmentedControl!
@@ -19,42 +18,60 @@ class AddViewController : UIViewController, UITextFieldDelegate
     @IBOutlet weak var saveButton: UIButton!
     
     
-    // IBActions
+    /*
+    -------------------
+    BUTTON INTERACTIONS
+    -------------------
+    */
+    
+    
     @IBAction func saveButtonPressed(_ sender: UIButton)
     {
-        // Get attributes from UI elements.
+        // get attributes from UI elements
         let title = titleTextBox.text
         let expiration = creditExpirationSelector.selectedSegmentIndex + 1
         let maxCredits = creditsSelector.selectedSegmentIndex + 1
         
-        // Add a new cell in the model.
+        // add a new cell in the model
         Controller.createCell(title: title!, resetCycleLength: expiration, maxCredits: maxCredits)
         navigationController?.popToRootViewController(animated: true)
     }
     
     
+    /*
+    -----------------------------
+    VIEW INITIALIZATION FUNCTIONS
+    -----------------------------
+    */
+    
+    
     override func viewDidLoad()
     {
-        // This allows the keyboard to be hidden by this class.
+        // this allows the keyboard to be hidden by this class
         titleTextBox.delegate = self
         
-        // Configuration
-        configureView()
-        configureUIElements()
+        // configuration
+        configureViewColors()
         configureKeyboard()
     }
     
 
     override func viewWillAppear(_ animated: Bool)
-    {
-        // Configuration
-        configureView()
-        configureUIElements()
-        configureKeyboard()
-    }
+    { configureViewColors() }
     
     
-    // This will hide the keyboard when the 'done' button is pressed.
+    override func viewDidAppear(_ animated: Bool)
+    { configureViewColors() }
+    
+    
+    /*
+    ------------------------------
+    SYSTEM CONFIGURATION FUNCTIONS
+    ------------------------------
+    */
+    
+    
+    /// This will hide the keyboard when the 'done' button is pressed.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
@@ -63,61 +80,63 @@ class AddViewController : UIViewController, UITextFieldDelegate
     }
     
     
-    // CONFIGURATION METHODS
-    
-    
-    // Style of status bar (light/dark).
+    /// Set the style of status bar (light/dark).
     override var preferredStatusBarStyle: UIStatusBarStyle
     { return .lightContent }
     
     
-    // Configure the view's visual settings.
-    func configureView()
-    { self.view.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true) }
-    
-    
-    // Configure colors of all UI elements.
-    func configureUIElements()
+    /// Configure keyboard behavior.
+    func configureKeyboard()
     {
-        // Set up title text box.
+        // keyboard autohide when view tapped
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    
+    /*
+    -----------------------------
+    THEME CONFIGURATION FUNCTIONS
+    -----------------------------
+    */
+    
+    
+    /// Style the view with colors from the current theme.
+    func configureViewColors()
+    {
+        // configure the view
+        self.view.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
+        
+        // configure the title text box
         titleTextBox.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         titleTextBox.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         titleTextBox.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         titleTextBox.layer.borderColor = ThemeManager.getCurrentThemeColor(isBGColor: false)?.cgColor
         titleTextBox.layer.borderWidth = 4
         
-        // Set BOTH selector header lables.
+        // set both selector header labels
         creditExpirationSelectionTitle.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         creditsSelectorTitle.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         
-        // Set up custom font for selectors.
+        // set up custom selector font
         let font = UIFont.systemFont(ofSize: 20, weight: .black)
         
-        // Configure the credit expiration selector.
+        // configure the credit expiration selector
         creditExpirationSelector.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         creditExpirationSelector.layer.borderColor = ThemeManager.getCurrentThemeColor(isBGColor: false)?.cgColor
         creditExpirationSelector.layer.borderWidth = 4
         creditExpirationSelector.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         creditExpirationSelector.setDividerImage(UIImage(named: "invisible_line"), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: UIBarMetrics.default)
         
-        // Configure the credit selector.
+        // configure the credit selector
         creditsSelector.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         creditsSelector.layer.borderColor = ThemeManager.getCurrentThemeColor(isBGColor: false)?.cgColor
         creditsSelector.layer.borderWidth = 4
         creditsSelector.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         creditsSelector.setDividerImage(UIImage(named: "invisible_line"), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: UIBarMetrics.default)
         
-        // Customize the save button.
+        // customize the save button
         saveButton.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
-    }
-    
-    
-    // Configures keyboard.
-    func configureKeyboard()
-    {
-        // Keyboard Auto-Hide When View Tapped
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        tap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tap)
     }
 }

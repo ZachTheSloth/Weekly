@@ -95,7 +95,7 @@ class TableViewController : UITableViewController
     }
     
     
-    /// Removes 1 credit from the selected view, updates the table view.
+    /// Removes 1 credit from the selected view, then updates the table view.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         // get cell info (that won't change)
