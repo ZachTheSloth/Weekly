@@ -127,6 +127,34 @@ class TableViewController : UITableViewController
     { return Controller.getCellDataContainerEntityCount()! }
     
     
+    // CONFIGURE SWIPE ACTIONS FOR TABLE CELLS
+    
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let delete = deleteAction(indexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    
+    /// Configure the 'delete' action for table view cells.
+    func deleteAction(indexPath: IndexPath) -> UIContextualAction
+    {
+        // define action
+        let action = UIContextualAction(style: .normal, title: "Remove")
+        { (action, view, completion) in
+            Controller.removeCell(cellIndex: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        
+        // set properties
+        action.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+        
+        return action
+    }
+    
+    
     /*
     ------------------------------
     SYSTEM CONFIGURATION FUNCTIONS

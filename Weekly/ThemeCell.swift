@@ -10,13 +10,6 @@ import UIKit
 
 class ThemeCell: UITableViewCell
 {
-    
-    
-    
-    // IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var selectionImage: UIImageView!
-    
-    
-    
 }

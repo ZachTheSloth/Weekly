@@ -10,21 +10,15 @@ import UIKit
 
 class ItemCell: UITableViewCell
 {
-
-    
-    
-    // Outlets (Labels)
+    // labels
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var expirationLabel: UILabel!
     
-    // Outlets (Credit Slots)
+    // credit slots
     @IBOutlet weak var creditSlot1ImageView: UIImageView!
     @IBOutlet weak var creditSlot2ImageView: UIImageView!
     @IBOutlet weak var creditSlot3ImageView: UIImageView!
     @IBOutlet weak var creditSlot4ImageView: UIImageView!
     @IBOutlet weak var creditSlot5ImageView: UIImageView!
     @IBOutlet weak var creditSlot6ImageView: UIImageView!
-    
-    
-    
 }
