@@ -11,7 +11,15 @@ import UIKit
 
 class SettingsTableViewController : UITableViewController
 {
+    /// Gets a list of themes in a concrete ordering.
     var themes = ThemeManager.getThemesAsOrderedArray()
+    
+    
+    /*
+    -----------------------------
+    VIEW INITIALIZATION FUNCTIONS
+    -----------------------------
+    */
     
     
     override func viewDidLoad()
@@ -29,6 +37,13 @@ class SettingsTableViewController : UITableViewController
     { configureViewColors() }
     
     
+    /*
+    -----------------------------------------------
+    TABLE VIEW CONSTRUCTION/CONFIGURATION FUNCTIONS
+    -----------------------------------------------
+    */
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = Bundle.main.loadNibNamed("ThemeCell", owner: self, options: nil)?.first as! ThemeCell
@@ -37,17 +52,17 @@ class SettingsTableViewController : UITableViewController
         let foregroundColor = ThemeManager.getTheme(themeName: themeName, isInverted: false)[0]
         let backgroundColor = ThemeManager.getTheme(themeName: themeName, isInverted: false)[1]
         
-        // Set the background & selection color of the entire cell.
+        // set the background & selection color of the entire cell
         let bgColorView = UIView()
         bgColorView.backgroundColor = backgroundColor
         cell.backgroundColor = backgroundColor
         cell.selectedBackgroundView = bgColorView
         
-        // Set up the text and color for the title.
+        // set up the text and color for the title
         cell.nameLabel.text = themeName
         cell.nameLabel.textColor = foregroundColor
         
-        // Set the selection image:
+        // set the selection image
         if themeName == ThemeManager.getCurrentThemeName()
         { cell.selectionImage.image = UIImage(named: "credit_full") }
         else
@@ -68,27 +83,36 @@ class SettingsTableViewController : UITableViewController
     }
     
     
-    // SYSTEM CONFIGURATION
-    
-    
-    // Sets the height of the table cells.
+    /// Sets the height of the table cells.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     { return 80 }
     
     
-    // Sets the number of rows in the table view (should be equal to the # of entries in the data).
+    /// Sets the number of rows in the table view (should be equal to the # of entries in the data).
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     { return ThemeManager.getThemeCount() }
     
     
-    // Style of status bar (light/dark).
+    /*
+    ------------------------------
+    SYSTEM CONFIGURATION FUNCTIONS
+    ------------------------------
+    */
+    
+    
+    /// Sets the style of status bar (light/dark).
     override var preferredStatusBarStyle: UIStatusBarStyle
     { return .lightContent }
     
     
-    // THEME CONFIGURATION
+    /*
+    -----------------------------
+    THEME CONFIGURATION FUNCTIONS
+    -----------------------------
+    */
     
     
+    /// Style the view with colors from the current theme.
     func configureViewColors()
     {
         // configure view
