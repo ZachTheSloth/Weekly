@@ -35,6 +35,7 @@ class AddViewController : UIViewController, UITextFieldDelegate
         // add a new cell in the model
         Controller.createCell(title: title!, resetCycleLength: expiration, maxCredits: maxCredits)
         navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

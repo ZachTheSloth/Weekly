@@ -133,7 +133,8 @@ class TableViewController : UITableViewController
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let delete = deleteAction(indexPath: indexPath)
-        return UISwipeActionsConfiguration(actions: [delete])
+        let edit = editAction(indexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
     
     
@@ -145,6 +146,28 @@ class TableViewController : UITableViewController
         { (action, view, completion) in
             Controller.removeCell(cellIndex: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        
+        // set properties
+        action.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
+        
+        return action
+    }
+    
+    
+    func editAction(indexPath: IndexPath) -> UIContextualAction
+    {
+        // define action
+        let action = UIContextualAction(style: .normal, title: "Edit")
+        { (action, view, completion) in
+            // remove current entry
+            Controller.removeCell(cellIndex: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            // present edit view
+            let editView = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc : UIViewController = editView.instantiateViewController(withIdentifier: "addViewController") as UIViewController
+            self.present(vc, animated: true, completion: nil)
             completion(true)
         }
         
