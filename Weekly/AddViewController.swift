@@ -109,6 +109,14 @@ class AddViewController : UIViewController, UITextFieldDelegate
         // configure the view
         self.view.backgroundColor = ThemeManager.getCurrentThemeColor(isBGColor: true)
         
+        // configure header
+        let smallTitleAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.getCurrentThemeColor(isBGColor: false),
+                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.black)]
+        let largeTitleAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.getCurrentThemeColor(isBGColor: false),
+                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 35.0, weight: UIFont.Weight.black)]
+        navigationController?.navigationBar.titleTextAttributes = smallTitleAttributes as [NSAttributedString.Key : Any]
+        navigationController?.navigationBar.largeTitleTextAttributes = largeTitleAttributes as [NSAttributedString.Key : Any]
+        
         // configure the title text box
         titleTextBox.textColor = ThemeManager.getCurrentThemeColor(isBGColor: false)
         titleTextBox.tintColor = ThemeManager.getCurrentThemeColor(isBGColor: false)

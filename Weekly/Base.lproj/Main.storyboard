@@ -58,7 +58,7 @@
                             <outlet property="delegate" destination="RGL-om-Ad5" id="rUg-I1-yc5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Weekly" id="MUm-bq-M3d">
+                    <navigationItem key="navigationItem" title="Weekly" largeTitleDisplayMode="always" id="MUm-bq-M3d">
                         <barButtonItem key="leftBarButtonItem" title="Settings" style="plain" id="nms-te-4Wd">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
