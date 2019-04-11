@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeCell" rowHeight="80" id="KGk-i7-Jjw" customClass="ThemeCell" customModule="Weekly" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="ThemeCell" customModule="Weekly" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -30,19 +30,16 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Vti-Iw-RsQ">
                         <rect key="frame" x="254" y="14" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Vti-Iw-RsQ" secondAttribute="height" multiplier="1:1" id="U9d-hs-6ko"/>
-                            <constraint firstAttribute="height" constant="50" id="lQB-Wm-D3M"/>
-                            <constraint firstAttribute="width" constant="50" id="yvi-fQ-UDM"/>
+                            <constraint firstAttribute="width" constant="50" id="o99-FQ-IgL"/>
+                            <constraint firstAttribute="height" constant="50" id="rpU-ps-oAU"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="DIP-z6-NAu" secondAttribute="bottom" constant="22.5" id="35u-p2-Evr"/>
-                    <constraint firstAttribute="bottom" secondItem="Vti-Iw-RsQ" secondAttribute="bottom" constant="15.5" id="dOm-3f-6fH"/>
-                    <constraint firstAttribute="trailing" secondItem="Vti-Iw-RsQ" secondAttribute="trailing" constant="16" id="fiW-Ti-pjY"/>
+                    <constraint firstAttribute="trailing" secondItem="Vti-Iw-RsQ" secondAttribute="trailing" constant="16" id="Zku-nn-DyN"/>
+                    <constraint firstItem="Vti-Iw-RsQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="f9U-5T-cGf"/>
                     <constraint firstItem="DIP-z6-NAu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hJ5-Zk-YaM"/>
                     <constraint firstItem="DIP-z6-NAu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="lcd-Zu-N1q"/>
-                    <constraint firstItem="Vti-Iw-RsQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="vO6-o1-idU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
